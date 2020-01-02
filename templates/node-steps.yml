@@ -1,0 +1,12 @@
+parameters:
+- name: projectRoot
+  type: string
+- name: nodeVersion
+  type: string
+  default: '12.14'
+  
+steps:
+- task: Npm@1
+  inputs:
+    command: 'install'
+    workingDir:  ${{parameters.projectRoot}}

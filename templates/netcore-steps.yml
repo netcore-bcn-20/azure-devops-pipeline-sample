@@ -1,0 +1,13 @@
+parameters:
+- name: projectRoot
+  type: string
+- name: buildConfiguration
+  type: string
+  default: 'Release'
+  
+steps:
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: ${{ parameters.projectRoot }}
+    arguments: '--configuration ${{ parameters.buildConfiguration }}'
