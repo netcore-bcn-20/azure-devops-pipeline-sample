@@ -1,0 +1,56 @@
+name: $(BuildDefinitionName)_$(SourceBranchName)$(rev:.r)
+
+trigger:
+- master
+
+resources:
+  containers:
+  - container: dotnetcore
+    image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  - container: nodejs
+    image: node:slim
+  - container: maven
+    image: maven:slim
+
+variables:
+  buildConfiguration: 'Release'
+  nodeVersion: '12.14'
+
+stages:
+- stage: build
+  displayName: Build projects
+  jobs:
+  - job: build_dotnetcore
+    displayName: Build dotnetcore
+    workspace:
+      clean: all
+    pool:
+      vmImage: 'ubuntu-latest'
+    container: dotnetcore
+    steps:
+    - template: 'templates\netcore-steps.yml'
+      parameters:
+        projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Product.Api/Tailwind.Traders.Product.Api.csproj'
+  - job: build_nodejs
+    displayName: Build nodejs
+    workspace:
+      clean: all
+    pool:
+      vmImage: 'ubuntu-latest'
+    container: nodejs
+    steps:
+    - template: 'templates\node-steps.yml'
+      parameters:
+        projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Coupon.Api'
+        nodeVersion: $(nodeVersion)
+  - job: build_maven
+    displayName: Build maven
+    workspace:
+      clean: all
+    pool:
+      vmImage: 'ubuntu-latest'
+    container: maven
+    steps:
+    - template: 'templates\java-steps.yml'
+      parameters:
+        projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Stock.Api'
