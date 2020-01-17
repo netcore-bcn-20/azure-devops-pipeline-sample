@@ -28,6 +28,7 @@ stages:
       vmImage: 'ubuntu-latest'
     container: dotnetcore
     steps:
+    - bash: 'echo $(buildConfiguration)'
     - template: '..\templates\netcore-steps.yml'
       parameters:
         projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Product.Api/Tailwind.Traders.Product.Api.csproj'
