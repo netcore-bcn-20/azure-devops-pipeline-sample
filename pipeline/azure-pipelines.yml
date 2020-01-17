@@ -63,5 +63,5 @@ stages:
     steps:
     - task: GitHubComment@0
       inputs:
-        gitHubConnection: 'github.com_erikpique'
+        gitHubConnection: 'git_connection'
         repositoryName: 'netcore-bcn-20/azure-devops-pipeline-sample'
