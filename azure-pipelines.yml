@@ -13,6 +13,7 @@ variables:
   solution: 'Source/Services/Tailwind.Traders.Product.Api/Tailwind.Traders.Product.Api.csproj'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  Parameters.ArtifactName: 'drop'
 
 steps:
 - task: NuGetToolInstaller@1
