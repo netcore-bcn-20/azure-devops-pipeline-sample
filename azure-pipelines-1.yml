@@ -1,6 +1,7 @@
 pool:
   vmImage: 'windows-latest'
   name: Azure Pipelines
+  display: 'aaaaa'
   demands:
   - msbuild
   - visualstudio
