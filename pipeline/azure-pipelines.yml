@@ -12,9 +12,9 @@ resources:
   - container: maven
     image: maven:slim
 
-variables:
-  buildConfiguration: 'Release'
-  nodeVersion: '12.14'
+#variables:
+#  buildConfiguration: 'Release'
+#  nodeVersion: '12.14'
 
 stages:
 - stage: build
