@@ -1,6 +1,6 @@
 pool:
   vmImage: 'windows-latest'
-  name: 'PipelineYaml-2'
+  name: Azure Pipelines
   demands:
   - msbuild
   - visualstudio
