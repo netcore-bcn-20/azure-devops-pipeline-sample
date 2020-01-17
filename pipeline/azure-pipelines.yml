@@ -28,7 +28,7 @@ stages:
       vmImage: 'ubuntu-latest'
     container: dotnetcore
     steps:
-    - template: 'templates\netcore-steps.yml'
+    - template: '..\templates\netcore-steps.yml'
       parameters:
         projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Product.Api/Tailwind.Traders.Product.Api.csproj'
   - job: build_nodejs
@@ -39,7 +39,7 @@ stages:
       vmImage: 'ubuntu-latest'
     container: nodejs
     steps:
-    - template: 'templates\node-steps.yml'
+    - template: '..\templates\node-steps.yml'
       parameters:
         projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Coupon.Api'
         nodeVersion: $(nodeVersion)
@@ -51,6 +51,6 @@ stages:
       vmImage: 'ubuntu-latest'
     container: maven
     steps:
-    - template: 'templates\java-steps.yml'
+    - template: '..\templates\java-steps.yml'
       parameters:
         projectRoot: '$(Build.SourcesDirectory)/Source/Services/Tailwind.Traders.Stock.Api'
