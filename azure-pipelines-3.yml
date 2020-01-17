@@ -16,7 +16,7 @@ pool:
 #Your build pipeline references an undefined variable named ‘Parameters.ArtifactName’. Create or edit the build pipeline for this YAML file, define the variable on the Variables tab. See https://go.microsoft.com/fwlink/?linkid=865972
 
 variables:
-  Parameters.solution: 'Parameters.ArtifactName'
+  Parameters.solution: 'Source/Services/Tailwind.Traders.Product.Api/Tailwind.Traders.Product.Api.csproj'
   BuildPlatform: 'Any CPU'
   BuildConfiguration: 'Release'
   Parameters.ArtifactName: 'drop'
