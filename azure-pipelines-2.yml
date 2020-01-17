@@ -60,8 +60,4 @@ stages:
   jobs:
   - job:
     steps:
-    - task: GitHubComment@0
-      inputs:
-        gitHubConnection: 'github.com_erikpique'
-        repositoryName: 'netcore-bcn-20/azure-devops-pipeline-sample'
-        id: '$(Build.BuildNumber)'
+    - bash: 'echo seunfo stage'
